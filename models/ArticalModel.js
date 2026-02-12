@@ -3,7 +3,7 @@ import { Schema,model } from "mongoose";
 const userCommentSchema= new Schema({
     user:{
         type:Schema.Types.ObjectId,
-        ref:user
+        ref:'user'
     },
     comment:{
         type:String
@@ -28,10 +28,10 @@ const articleSchema=new Schema({
     content:{
         type:String
     },
-    commnets: [userCommentSchema],
+    comments: [userCommentSchema],
     isArticleActive:{
         type:Boolean,
-        deafault:true
+        default:true
     }
 },{
     timestamps:true,

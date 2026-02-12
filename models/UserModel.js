@@ -14,7 +14,8 @@ const userSchema = new Schema({
     },
     password:{
         type:String,
-        required:[true,"Enter valid password"]
+        required:[true,"Enter valid password"],
+        unique: [true,"Email already exists"]
     },
     profileImageUrl:{
         type:String
@@ -22,7 +23,6 @@ const userSchema = new Schema({
     role:{
         type:String,
         enum: ["AUTHOR","USER","ADMIN"],//Check if the value is either of the enum values, if not, enum sends an error
-        required:[true,"{value} is an Invalid Role"]
     },
     isActive:{
         type:Boolean,

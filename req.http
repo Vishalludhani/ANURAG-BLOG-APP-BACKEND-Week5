@@ -1,0 +1,105 @@
+###user register
+
+POST http://localhost:6000/user-api/users
+Content-Type: application/json
+
+{
+    "firstName":"Vishal",
+    "lastName":"Ludhani",
+    "email":"Vishal@gmail.com",
+    "password":"vishal"
+}
+
+###Author resgister
+POST http://localhost:6000/author-api/users
+Content-Type: application/json
+
+{
+    "firstName":"Anita",
+    "lastName":"Ludhani",
+    "email":"Anita@gmail.com",
+    "password":"anita"
+}
+
+
+###Login
+POST http://localhost:6000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"satish@gmail.com",
+    "password":"admin"
+}
+
+###Admin read articles
+GET http://localhost:6000/admin-api/read-articles/698ac06d996391f4bf4fac7a
+
+###Admin block users
+GET http://localhost:6000/admin-api/block-user/698965a7ec0c0bfd7bceda8a
+
+###Admin Unblock users
+GET http://localhost:6000/admin-api/unblock-user/698965a7ec0c0bfd7bceda8a
+
+###Publish Article
+POST http://localhost:6000/author-api/articles
+Content-Type: application/json
+
+{
+    "author":"69896ad6cbc649bbfb0b5427",
+    "title":"test1 article",
+    "category":"Programming",
+    "content":"Programming is very difficult bro1"
+}
+
+###read articles
+GET http://localhost:6000/author-api/articles/69896ad6cbc649bbfb0b5427
+
+###update article
+PUT http://localhost:6000/author-api/articles
+Content-Type: application/json
+
+{
+    "author":"6989900df03905de5bb1fd84",
+    "articleid":"6989a0889c01a0c41dcc7f03",
+    "title":"test1 article",
+    "category":"programming",
+    "content":"Programming is Difficult"
+}
+
+###soft delete
+PUT http://localhost:6000/author-api/articles-delete
+Content-Type: application/json
+
+{
+    "author":"6989900df03905de5bb1fd84",
+    "articleid":"6989a0889c01a0c41dcc7f03"
+}
+
+###Logout
+GET http://localhost:6000/common-api/logout
+
+###Read articles as user
+GET http://localhost:6000/user-api/read-articles/698965a7ec0c0bfd7bceda8a
+
+###Add Comments
+PUT http://localhost:6000/user-api/comments/6989da0926180f18351de427
+Content-Type: application/json
+
+{
+    "user":"698965a7ec0c0bfd7bceda8a",
+    "comment":"This is a very good article. 5 stars"
+}
+
+###Change Password
+PUT http://localhost:6000/common-api/change-password
+Content-Type: application/json
+
+{
+    "email":"satish@gmail.com",
+    "oldp":"admin",
+    "newp":"Satish"
+}
+
+
+###Test res
+GET http://localhost:6000/test

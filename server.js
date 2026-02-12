@@ -4,10 +4,18 @@ import {config} from 'dotenv'
 import { userRoute } from './APIs/UserAPI.js'
 import { authorRoute } from './APIs/AuthorAPI.js'
 import { adminRoute } from './APIs/AdminAPI.js'
+import CookieParser from 'cookie-parser'
+import { commonRoute } from './APIs/CommonAPI.js'
 config()
 const app = exp()
 //add body parser middleware
 app.use(exp.json())
+
+app.use(CookieParser())
+app.use('/user-api',userRoute)
+app.use('/admin-api',adminRoute)
+app.use('/author-api',authorRoute)
+app.use('/common-api',commonRoute)
 
 const connectDB=async()=>{
     try{
@@ -22,9 +30,11 @@ const connectDB=async()=>{
 
 connectDB()
 
-app.use('/user-api',userRoute)
-app.use('/admin-api',adminRoute)
-app.use('/author-api',authorRoute)
+//deals with invalid routes
+app.use((req,res,next)=>{
+    res.json({message: `${req.url} is Invalid Route`})
+})
+
 
 //error handling middleware
 app.use((err,req,res,next)=>{

@@ -9,3 +9,5 @@
 7. Add middlewares(body parser,err handling)
 8. Desgin Schemas and create models
 9. Design REST APIs for all the resources
+10. Create a folder named services
+    1. it is used when multiple api's need to use the same business logic
